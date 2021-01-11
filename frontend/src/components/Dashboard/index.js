@@ -1,7 +1,7 @@
 import React from "react";
-import Timer from "./Timer";
+import Timer from "../Timer";
 
-function TimerDashboard() {
+function Dashboard() {
   const timerList = [
     {
       id: "1",
@@ -34,4 +34,4 @@ function TimerDashboard() {
   );
 }
 
-export default TimerDashboard;
+export default Dashboard;

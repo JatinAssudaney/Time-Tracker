@@ -1,8 +1,8 @@
 import React from "react";
-import useTimer from "../hooks/useTimer";
-import { formatTime } from "../utils/formatTime";
-import { renderTags } from "../utils/renderTags";
-// import "./Timer.css";
+import useTimer from "../../hooks/useTimer";
+import { formatTime } from "../../utils/formatTime";
+import { renderTags } from "../../utils/renderTags";
+import "./styles/Timer.css";
 
 function Timer({ title, tags, elapsedTime }) {
   const {
@@ -18,7 +18,7 @@ function Timer({ title, tags, elapsedTime }) {
   return (
     <div className="timer">
       <h3 className="timer__heading">{title}</h3>
-
+      <div className="timer__tags">{renderTags(tags)}</div>
       <div className="timer__elapsedTime">
         <p>{formatTime(time)}</p>
         <div className="timer__buttons">
@@ -33,7 +33,6 @@ function Timer({ title, tags, elapsedTime }) {
             Reset
           </button>
         </div>
-        <div className="timer__tags">{renderTags(tags)}</div>
       </div>
     </div>
   );

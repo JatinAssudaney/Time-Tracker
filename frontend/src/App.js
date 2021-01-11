@@ -1,13 +1,28 @@
+import React, { useEffect } from "react";
+import Dashboard from "./components/Dashboard";
 import "./App.css";
-import TimerDashboard from "./components/TimerDashboard";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchUser } from "./actions";
+import { Header } from "./components/Header";
 
-function App() {
+export const App = (props) => {
+  useEffect(() => {
+    props.fetchUser();
+  }, []);
+
   return (
     <div className="app">
-      <h1>App</h1>
-      <TimerDashboard />
+      <BrowserRouter>
+        <Header />
+        <Dashboard />
+      </BrowserRouter>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = null;
+
+const mapDispatchToProps = { fetchUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
