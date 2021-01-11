@@ -1,0 +1,29 @@
+.hero__container {
+  display: flex;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  height: 80vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero__about {
+  display: inline-block;
+  width: 30vw;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hero__about--main-text {
+  color: var(--call-to-action);
+}
+
+.hero__image {
+  display: inline-block;
+  width: 40vw;
+  height: auto;
+}
+.hero__image img {
+  width: 100%;
+  height: auto;
+}

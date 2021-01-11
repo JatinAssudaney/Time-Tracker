@@ -2,13 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import SearchIcon from "./search.svg";
 import Logo from "./logo.svg";
 import "./styles/Header.css";
 
-export const Header = (props) => {
+export const Header = ({ user }) => {
   const renderContent = () => {
-    switch (props.auth) {
+    switch (user) {
       case null:
         return;
       case false:
@@ -31,10 +30,7 @@ export const Header = (props) => {
         <img className="logo__icon" src={Logo} alt="webdevjourney" />
         <p className="logo__title">Your Time</p>
       </Link>
-      <div className="search">
-        <input type="text" className="search__posts" />
-        <img src={SearchIcon} alt="search-icon" className="search__icon" />
-      </div>
+
       <div className="nav-links">{renderContent()}</div>
     </nav>
   );
