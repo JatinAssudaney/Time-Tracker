@@ -7,6 +7,7 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 import { CreateTimer } from "./components/NewTimer/CreateTimer";
+import { EditTimer } from "./components/EditTimer";
 
 export const App = (props) => {
   const auth = useSelector((state) => state.auth);
@@ -23,6 +24,7 @@ export const App = (props) => {
           {auth ? <Dashboard /> : <Home />}
         </Route>
         <Route exact path="/timer/new" component={CreateTimer} />
+        <Route exact path="/timer/edit/:id" component={EditTimer} />
       </BrowserRouter>
     </div>
   );

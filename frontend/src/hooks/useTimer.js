@@ -1,10 +1,16 @@
 import { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { updateTimer, deleteTimer } from "../actions";
 
 const useTimer = (initialState = 0) => {
   const [time, setTime] = useState(initialState);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const countRef = useRef(null);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleStart = () => {
     setIsActive(true);
@@ -14,7 +20,9 @@ const useTimer = (initialState = 0) => {
     }, 1000);
   };
 
-  const handlePause = () => {
+  const handlePause = (id, title, elapsedTime, tags) => {
+    const values = { title, elapsedTime, tags };
+    dispatch(updateTimer(id, values));
     clearInterval(countRef.current);
     setIsPaused(false);
   };
@@ -33,6 +41,14 @@ const useTimer = (initialState = 0) => {
     setTime(0);
   };
 
+  const handleEdit = (id) => {
+    history.push(`/timer/edit/${id}`);
+  };
+
+  const handleDelete = (id) => {
+    dispatch(deleteTimer(id, history));
+  };
+
   return {
     time,
     isActive,
@@ -41,6 +57,8 @@ const useTimer = (initialState = 0) => {
     handlePause,
     handleResume,
     handleReset,
+    handleEdit,
+    handleDelete,
   };
 };
 

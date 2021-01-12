@@ -9,7 +9,7 @@ body {
   background-color: #0e4d92;
   margin: 0 auto;
   width: 360px;
-  height: 240px;
+  height: 300px;
   position: relative;
   border-radius: 10px;
 }
@@ -66,4 +66,20 @@ button {
   width: 150px;
   margin: 0 auto;
   margin-top: 5px;
+}
+
+.edit {
+  background-color: green;
+  color: white;
+  position: relative;
+  top: 60%;
+  left: 20%;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+  position: relative;
+  top: 60%;
+  left: 40%;
 }

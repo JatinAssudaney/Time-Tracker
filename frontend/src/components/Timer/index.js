@@ -4,12 +4,14 @@ import { formatTime } from "../../utils/formatTime";
 import { renderTags } from "../../utils/renderTags";
 import "./styles/Timer.css";
 
-function Timer({ title, tags, elapsedTime }) {
+function Timer({ _id, title, tags, elapsedTime }) {
   const {
     handleStart,
     handlePause,
     handleReset,
     handleResume,
+    handleEdit,
+    handleDelete,
     isActive,
     isPaused,
     time,
@@ -25,7 +27,9 @@ function Timer({ title, tags, elapsedTime }) {
           {!isActive && !isPaused ? (
             <button onClick={handleStart}>Start</button>
           ) : isPaused ? (
-            <button onClick={handlePause}>Pause</button>
+            <button onClick={() => handlePause(_id, title, time, tags)}>
+              Pause
+            </button>
           ) : (
             <button onClick={handleResume}>Resume</button>
           )}
@@ -34,6 +38,20 @@ function Timer({ title, tags, elapsedTime }) {
           </button>
         </div>
       </div>
+      <button
+        type="submit"
+        className="edit"
+        onClick={() => handleEdit(_id, title, time, tags)}
+      >
+        EDIT
+      </button>
+      <button
+        type="submit"
+        className="delete"
+        onClick={() => handleDelete(_id)}
+      >
+        DELETE
+      </button>
     </div>
   );
 }
