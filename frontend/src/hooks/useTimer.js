@@ -34,7 +34,9 @@ const useTimer = (initialState = 0) => {
     }, 1000);
   };
 
-  const handleReset = () => {
+  const handleReset = (id, title, elapsedTime, tags) => {
+    const values = { title, elapsedTime, tags };
+    dispatch(updateTimer(id, values));
     clearInterval(countRef.current);
     setIsActive(false);
     setIsPaused(false);

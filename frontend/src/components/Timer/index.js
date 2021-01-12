@@ -33,7 +33,10 @@ function Timer({ _id, title, tags, elapsedTime }) {
           ) : (
             <button onClick={handleResume}>Resume</button>
           )}
-          <button onClick={handleReset} disabled={!isActive}>
+          <button
+            onClick={() => handleReset(_id, title, 0, tags)}
+            disabled={!isActive}
+          >
             Reset
           </button>
         </div>
