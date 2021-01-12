@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const keys = require("./config/keys");
 require("./models/User");
+require("./models/Timer");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI, {
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
+require("./routes/timerRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));

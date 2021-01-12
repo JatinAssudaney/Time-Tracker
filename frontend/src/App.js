@@ -1,33 +1,31 @@
 import React, { useEffect } from "react";
-import Dashboard from "./components/Dashboard";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "./actions";
+import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
+import { CreateTimer } from "./components/NewTimer/CreateTimer";
 
 export const App = (props) => {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   useEffect(() => {
-    props.fetchUser();
+    dispatch(fetchUser());
   }, []);
 
   return (
     <div className="app">
       <BrowserRouter>
-        <Header user={props.auth} />
-        {props.auth ? <Dashboard /> : <Home />}
+        <Header />
+        <Route exact path="/">
+          {auth ? <Dashboard /> : <Home />}
+        </Route>
+        <Route exact path="/timer/new" component={CreateTimer} />
       </BrowserRouter>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    auth: state.auth,
-  };
-};
-
-const mapDispatchToProps = { fetchUser };
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

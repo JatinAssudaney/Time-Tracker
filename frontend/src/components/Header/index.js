@@ -1,13 +1,14 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Logo from "./logo.svg";
 import "./styles/Header.css";
 
-export const Header = ({ user }) => {
+export const Header = () => {
+  const auth = useSelector((state) => state.auth);
   const renderContent = () => {
-    switch (user) {
+    switch (auth) {
       case null:
         return;
       case false:
@@ -36,11 +37,4 @@ export const Header = ({ user }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    auth: state.auth,
-  };
-};
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

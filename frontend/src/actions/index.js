@@ -15,13 +15,6 @@ export const fetchTimers = () => {
   };
 };
 
-export const fetchPost = (id) => {
-  return async (dispatch, getState) => {
-    const res = await axios.get(`/api/user/${id}`);
-    dispatch({ type: FETCH_TIMERS, payload: res.data });
-  };
-};
-
 export const submitTimer = (values, history) => {
   return async (dispatch, getState) => {
     const res = await axios.post("/api/timers", values);

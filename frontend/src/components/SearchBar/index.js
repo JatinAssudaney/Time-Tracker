@@ -1,7 +1,8 @@
 import React from "react";
 import SearchIcon from "./search.svg";
+import "./styles/SearchBar.css";
 
-export const index = () => {
+export const SearchBar = () => {
   return (
     <div className="search">
       <input type="text" className="search__posts" />
@@ -10,4 +11,4 @@ export const index = () => {
   );
 };
 
-export default index;
+export default SearchBar;

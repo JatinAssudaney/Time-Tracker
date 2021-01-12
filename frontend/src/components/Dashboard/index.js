@@ -1,7 +1,10 @@
 import React from "react";
 import Timer from "../Timer";
+import { Button } from "../NewTimer/Button";
+import { SearchBar } from "../SearchBar";
+import "./styles/Dashboard.css";
 
-function Dashboard() {
+export const Dashboard = (props) => {
   const timerList = [
     {
       id: "1",
@@ -27,11 +30,13 @@ function Dashboard() {
   ];
   return (
     <>
+      <SearchBar />
       {timerList.map((timer) => {
         return <Timer key={timer.id} {...timer} />;
       })}
+      <Button />
     </>
   );
-}
+};
 
 export default Dashboard;

@@ -1,0 +1,32 @@
+.timer__create {
+  border: none;
+  outline: none;
+  background-color: var(--call-to-action);
+  border-radius: 50%;
+  position: relative;
+  z-index: 50;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer__create-link {
+  text-decoration: none;
+}
+.timer__create-link:visited {
+  text-decoration: none;
+}
+
+.timer__create--icon {
+  padding: 0;
+  margin: 0;
+  width: 1.3rem;
+  height: auto;
+  filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(35deg)
+    brightness(104%) contrast(102%);
+}

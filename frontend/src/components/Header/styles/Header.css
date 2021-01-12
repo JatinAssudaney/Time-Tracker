@@ -65,7 +65,6 @@
 .login,
 .logout {
   padding: 0.5rem 1rem;
-  background-color: var(--call-to-action);
   margin-left: 70px;
   border-radius: 10px;
 }
