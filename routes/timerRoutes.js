@@ -77,7 +77,9 @@ module.exports = (app) => {
       const timer = await Timer.findById(id);
       if (timer) {
         timer.title = title;
-        timer.tags = tags;
+        timer.tags = tags.split(",").map((tag) => {
+          return { topicName: tag.trim() };
+        });
       }
       await timer.save();
       res.send({});

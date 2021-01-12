@@ -41,7 +41,7 @@ export const editTimer = (id, values, history) => {
   return async (dispatch, getState) => {
     console.log(values);
     const res = await axios.put(`/api/timers/edit/${id}`, values);
-    // history.push("/");
+    history.push("/");
     dispatch({ type: FETCH_USER, payload: res.data });
   };
 };
