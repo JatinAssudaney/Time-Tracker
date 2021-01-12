@@ -9,8 +9,8 @@ export const Home = () => {
       <div className="hero__about">
         Manage your time with{" "}
         <span className="hero__about--main-text">
-          <img className="logo__icon" src={Logo} alt="webdevjourney" />
-          Your Time.
+          <img className="logo__icon" src={Logo} alt="your-time-tracker" />
+          Your Time Tracker.
         </span>
       </div>
       <div className="hero__image">

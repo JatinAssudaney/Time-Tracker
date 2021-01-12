@@ -29,7 +29,7 @@ export const Header = () => {
     <nav className="nav__container">
       <Link to="/" className="logo">
         <img className="logo__icon" src={Logo} alt="webdevjourney" />
-        <p className="logo__title">Your Time</p>
+        <p className="logo__title">Your Time Tracker</p>
       </Link>
 
       <div className="nav-links">{renderContent()}</div>
