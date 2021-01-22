@@ -9,14 +9,17 @@ require("./models/User");
 require("./models/Timer");
 require("./services/passport");
 
+const app = express();
 const connectDb = async () => {
-  await mongoose.connect(keys.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose
+    .connect(keys.mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => console.log("Database Connected"))
+    .catch((err) => console.log(err));
 };
 connectDb();
-const app = express();
 
 app.use(bodyParser.json());
 app.use(
